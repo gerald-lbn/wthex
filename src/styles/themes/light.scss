@@ -1,0 +1,40 @@
+:root {
+	// --property-[subtle|normal|strong]-[neutral|primary|secondary|tertiary]-[inverted]
+
+	/* Backgrounds */
+	--bg: white;
+	--bg-subtle-neutral: var(--stone-1);
+
+	/* Interactive components */
+	--bg-component-subtle-neutral: var(--stone-3);
+	--bg-component-normal-neutral: var(--stone-4);
+	--bg-component-strong-neutral: var(--stone-5);
+
+	--bg-component-subtle-destructive: var(--destructive-3);
+	--bg-component-normal-destructive: var(--destructive-4);
+	--bg-component-strong-destructive: var(--destructive-5);
+
+	/* Borders & separators */
+	--border-subtle-neutral: var(--stone-6);
+	--border-normal-neutral: var(--stone-7);
+	--border-strong-neutral: var(--stone-8);
+
+	--border-subtle-destructive: var(--destructive-6);
+	--border-normal-destructive: var(--destructive-7);
+	--border-strong-destructive: var(--destructive-8);
+
+	/* Solid colors */
+	--solid-normal-neutral: var(--stone-9);
+	--solid-strong-neutral: var(--stone-10);
+
+	--solid-normal-destructive: var(--destructive-9);
+	--solid-strong-destructive: var(--destructive-10);
+
+	/* Accessible text */
+	--text-normal-neutral: var(--stone-11);
+	--text-strong-neutral: var(--stone-12);
+	--text-inverted: white;
+
+	--text-normal-destructive: var(--destructive-11);
+	--text-strong-destructive: var(--destructive-12);
+}
