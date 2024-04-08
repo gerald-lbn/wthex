@@ -66,7 +66,7 @@
 			<Input
 				required
 				type="text"
-				placeholder="#"
+				placeholder="FFF"
 				name="guess"
 				hint="Enter a hex color value (3 characters)"
 				pattern="[a-fA-F0-9]&lcub;3&rcub;"
