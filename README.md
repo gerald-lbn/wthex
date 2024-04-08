@@ -1,38 +1,88 @@
-# create-svelte
+![What The Hex](https://wthex.vercel.app/og-image.png)
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+# What The Hex ?!
 
-## Creating a project
+_What The Hex_ is a wordle-like game where you try to guess hex colors
 
-If you're seeing this, you've probably already done this step. Congrats!
+## How to play 🧐
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+- You have 6 attempts to guess the hex color
+- After each attempt, you will get feedback on how close you are to the correct hex color
+  - ⏫: Value is higher by 3 or more
+  - ⏬: Value is lower by 3 or more
+  - ⬆️: Value is higher by 1 or 2
+  - ⬇️: Value is lower by 1 or 2
+  - ✅: Value is correct
 
-# create a new project in my-app
-npm create svelte@latest my-app
+## Stack 📦️
+
+- Framework: [SvelteKit](https://kit.svelte.dev/)
+- Database: [Postgres](https://www.postgresql.org/)
+- ORM: [Drizzle](https://orm.drizzle.team/)
+- Hosting & Cron: [Vercel](https://vercel.com/)
+- i18n: [ParaglideJS](https://inlang.com/m/gerre34r/library-inlang-paraglideJs)
+
+## Development 🛠️
+
+### Environment variables
+
+| Variable       | Description                            |
+| -------------- | -------------------------------------- |
+| `POSTGRES_URL` | Postgres connection URL to my database |
+| `CRON_SECRET`  | Secret key for the cron job            |
+
+Copy the `.env.example` file to `.env` and fill in the values
+
+```sh
+cp .env.example .env
 ```
 
-## Developing
+### Database setup
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+1. Create a new database
+2. Push the schema to the database
 
-```bash
+```sh
+# Npm
+npm run db:push
+
+# Yarn
+yarn db:push
+
+# Pnpm
+pnpm db:push
+
+# Bun
+bunx run db:push
+```
+
+### Development server
+
+```sh
+# Npm
 npm run dev
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+# Yarn
+yarn dev
+
+# Pnpm
+pnpm dev
+
+# Bun
+bun dev
 ```
 
-## Building
+### i18n (Internationalization)
 
-To create a production version of your app:
+I'm using [ParaglideJS](https://inlang.com/m/gerre34r/library-inlang-paraglideJs) for i18n.
 
-```bash
-npm run build
-```
+As of now, the following languages are supported:
 
-You can preview the production build with `npm run preview`.
+- [English](https://wthex.vercel.app/)
+- [French](https://wthex.vercel.app/fr)
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+If you want to see the game in another language, feel free to contribute by adding a new language in the [inlang project](https://fink.inlang.com/github.com/Shinyhero36/wthex?project=%2Fproject.inlang&lang=en&lang=fr)
+
+## License 📝
+
+This project is licensed under the GPL-3.0 License - see the [LICENSE](LICENSE) file for details
