@@ -6,6 +6,8 @@
 	import autoAnimate from '@formkit/auto-animate';
 	// import { toast } from 'svelte-french-toast';
 
+	import * as m from '$lib/paraglide/messages';
+
 	interface Props {
 		challenge: HexChallengeWithGuesses;
 	}
@@ -28,11 +30,11 @@
 <div class="what-the-hex">
 	<div class="colors">
 		<div class="column">
-			<p class="size-6 label">Target</p>
+			<p class="size-6 label">{m.target()}</p>
 			<div class="color" style="background-color: #{challenge.value};"></div>
 		</div>
 		<div class="column">
-			<p class="size-6 label">Guess</p>
+			<p class="size-6 label">{m.guess()}</p>
 			<div class="color" style="background-color: #{currentGuess};"></div>
 		</div>
 	</div>
@@ -68,14 +70,14 @@
 				type="text"
 				placeholder="FFF"
 				name="guess"
-				hint="Enter a hex color value (3 characters)"
+				hint={m.hexInput()}
 				pattern="[a-fA-F0-9]&lcub;3&rcub;"
 			/>
 		</form>
 	{/if}
 
 	<div class="guess">
-		<p class="size-6">Guesses</p>
+		<p class="size-6">{m.guesses()}</p>
 		<ul use:autoAnimate>
 			{#each guesses as guess}
 				<li>

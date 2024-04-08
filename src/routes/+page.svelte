@@ -2,10 +2,12 @@
 	import Hero from '$components/Hero.svelte';
 	import WhatTheHex from '$components/WhatTheHex.svelte';
 
+	import * as m from '$lib/paraglide/messages';
+
 	export let data;
 </script>
 
-<Hero heading="What The Hex ?!" subheading="Instead of guessing words, try guessing hex colors !" />
+<Hero heading="What The Hex ?!" subheading={m.heroDescription()} />
 
 {#if data.challenge}
 	<div class="wth-wrap">

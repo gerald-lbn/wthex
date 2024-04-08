@@ -3,6 +3,8 @@
 	import Hero from '$components/Hero.svelte';
 	import { formatDateWithDash } from '$lib/helpers/date';
 
+	import * as m from '$lib/paraglide/messages';
+
 	export let data;
 
 	let solved = (challenge: (typeof data.challenges)[0]) => {
@@ -13,15 +15,12 @@
 	};
 </script>
 
-<Hero
-	heading="Archive"
-	subheading="Find all the past challenges here. Each day, a new challenge will be posted."
-/>
+<Hero heading={m.archives()} subheading={m.archivesDescription()} />
 
 <div class="challenges">
 	{#each data.challenges as challenge}
 		<ChallengeCard
-			url="/archive/{formatDateWithDash(challenge.createdAt)}"
+			url="/archives/{formatDateWithDash(challenge.createdAt)}"
 			{challenge}
 			solved={solved(challenge)}
 		/>

@@ -1,11 +1,13 @@
 <script lang="ts">
 	import Logo from './Logo.svelte';
+
+	import * as m from '$lib/paraglide/messages';
 </script>
 
 <header class="container">
 	<Logo />
 	<nav>
-		<a href="/archive">Archive</a>
+		<a href="/archives">{m.archives()}</a>
 	</nav>
 </header>
 
