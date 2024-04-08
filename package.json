@@ -38,7 +38,6 @@
   "dependencies": {
     "@formkit/auto-animate": "^0.8.1",
     "sass": "^1.74.1",
-    "svelte-french-toast": "^1.2.0",
     "valibot": "^0.30.0"
   }
 }

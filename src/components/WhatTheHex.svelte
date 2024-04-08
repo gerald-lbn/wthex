@@ -4,7 +4,7 @@
 	import Input from '$components/Input.svelte';
 	import { enhance } from '$app/forms';
 	import autoAnimate from '@formkit/auto-animate';
-	import { toast } from 'svelte-french-toast';
+	// import { toast } from 'svelte-french-toast';
 
 	interface Props {
 		challenge: HexChallengeWithGuesses;
@@ -43,7 +43,7 @@
 			action="/api/challenges?/guess"
 			use:enhance={({ cancel }) => {
 			if (guesses.length > 5) {
-				toast.error('You have reached the maximum number of guesses.');
+				// toast.error('You have reached the maximum number of guesses.');
 				return cancel();
 			}
 
@@ -56,7 +56,7 @@
 					guesses = [guess, ...guesses]
 					currentGuess = guess.value;
 
-					if (guessed) toast.success('You guessed it! 🎉');
+					// if (guessed) toast.success('You guessed it! 🎉');
 				}
 				await update();
 			};
