@@ -1,0 +1,12 @@
+{
+	"$schema": "https://inlang.com/schema/inlang-message-format",
+	"heroDescription": "Instead of guessing words, try guessing hex colors !",
+	"target": "Target",
+	"guess": "Guess",
+	"hexInput": "Enter a hex color value (3 characters)",
+	"guesses": "Guesses",
+	"archives": "Archives",
+	"archivesDescription": "Find all the past challenges here. Each day, a new challenge will be posted.",
+	"canYouSolveIt": "Can you solve it?",
+	"challengeDate": "{date} challenge"
+}

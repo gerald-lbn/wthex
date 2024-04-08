@@ -1,19 +1,26 @@
 <script lang="ts">
 	import Meta from '$components/Meta.svelte';
 	import Navbar from '$components/Navbar.svelte';
+	import { ParaglideJS } from '@inlang/paraglide-js-adapter-sveltekit';
+	import { i18n } from '$lib/i18n';
 	// import { Toaster } from 'svelte-french-toast';
 	import '../styles/globals.scss';
 </script>
 
-<Meta title="What The Hex ?!" description="Instead of guessing words, try guessing hex colors !" />
+<ParaglideJS {i18n}>
+	<Meta
+		title="What The Hex ?!"
+		description="Instead of guessing words, try guessing hex colors !"
+	/>
 
-<Navbar />
+	<Navbar />
 
-<!-- <Toaster /> -->
+	<!-- <Toaster /> -->
 
-<main class="container">
-	<slot />
-</main>
+	<main class="container">
+		<slot />
+	</main>
+</ParaglideJS>
 
 <style lang="scss">
 	main {
