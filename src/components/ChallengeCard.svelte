@@ -1,35 +1,32 @@
 <script lang="ts">
+	import type { HexChallenge } from '$lib/db/types';
+
 	interface Props {
-		colorName: string;
-		hex: string;
-		pubDate: Date;
+		challenge: HexChallenge;
+		url: string;
 		solved?: boolean;
 	}
 
-	const { colorName, hex, pubDate, solved }: Props = $props();
+	const { challenge, url, solved }: Props = $props();
 </script>
 
-<div class="challenge-card size-7">
-	<div class="color" style="background-color: {solved ? hex : '#dbdbdb'};"></div>
+<a href={url} class="challenge-card size-7">
+	<div class="color" style="background-color: #{solved ? challenge.value : 'dbdbdb'};"></div>
 	<p class="color-name">
 		{#if solved}
-			{colorName}
+			#{challenge.value}
 		{:else}
 			Unsolved Challenge
 		{/if}
 	</p>
-	<footer class="size-8">
-		{#if solved}
-			<p>#{hex}</p>
-		{:else}
-			#???
-		{/if}
-		<p>{pubDate.toLocaleDateString()}</p>
-	</footer>
-</div>
+	<p class="size-8 date">{new Date(challenge.createdAt).toDateString()}</p>
+</a>
 
 <style lang="scss">
 	.challenge-card {
+		text-decoration: none;
+		color: inherit;
+
 		overflow: hidden;
 
 		border: 3px solid var(--text-normal-neutral);
@@ -48,12 +45,10 @@
 			font-weight: 500;
 		}
 
-		& > footer {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-
-			padding: var(--space-sm) var(--space-md);
+		& > p.date {
+			text-align: end;
+			margin-top: var(--space-sm);
+			padding: 0 var(--space-sm) var(--space-md);
 		}
 	}
 </style>

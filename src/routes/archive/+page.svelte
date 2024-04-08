@@ -1,13 +1,30 @@
-<script>
+<script lang="ts">
 	import ChallengeCard from '$components/ChallengeCard.svelte';
+	import Hero from '$components/Hero.svelte';
+	import { formatDateWithDash } from '$lib/helpers/date';
+
+	export let data;
+
+	let solved = (challenge: (typeof data.challenges)[0]) => {
+		// Check if the challenge has any guesses
+		// i.e if the challenge has been solved
+		// We filtered guesses to only include correct guesses
+		return challenge.guesses.length > 0;
+	};
 </script>
 
-<h1 class="size-1">Archive</h1>
-<p>Find all the past challenges here. Each day, a new challenge will be posted.</p>
+<Hero
+	heading="Archive"
+	subheading="Find all the past challenges here. Each day, a new challenge will be posted."
+/>
 
 <div class="challenges">
-	{#each [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] as _}
-		<ChallengeCard colorName="What The Hex ?!" hex="#FF0000" pubDate={new Date()} />
+	{#each data.challenges as challenge}
+		<ChallengeCard
+			url="/archive/{formatDateWithDash(challenge.createdAt)}"
+			{challenge}
+			solved={solved(challenge)}
+		/>
 	{/each}
 </div>
 

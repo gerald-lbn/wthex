@@ -13,23 +13,22 @@ export const doesChallengeExist = async (challengeId: string) => {
 	return !!challenge;
 };
 
-export const createChallenge = async (colorSize: number) => {
+export const createChallenge = async (colorSize: number, date?: Date) => {
 	const color = createHexColor(colorSize);
 	const [chall] = await db
 		.insert(hexChallenges)
 		.values({
 			value: color,
-			createdAt: new Date().toDateString()
+			createdAt: date ? date.toDateString() : new Date().toDateString()
 		})
 		.returning();
 
 	return chall;
 };
 
-export const getTodayChallenge = async (userId: string) => {
-	const today = new Date().toDateString();
+export const getChallenge = async (date: Date, userId: string) => {
 	const chall = await db.query.hexChallenges.findFirst({
-		where: ({ createdAt }, { eq }) => eq(createdAt, today),
+		where: ({ createdAt }, { eq }) => eq(createdAt, date.toDateString()),
 		with: {
 			guesses: {
 				where: ({ userId: uid }, { eq }) => eq(uid, userId),
@@ -38,6 +37,19 @@ export const getTodayChallenge = async (userId: string) => {
 		}
 	});
 	return chall;
+};
+
+export const getArchivedChallenges = async (userId: string) => {
+	return await db.query.hexChallenges.findMany({
+		orderBy: ({ createdAt }, { desc }) => desc(createdAt),
+		with: {
+			guesses: {
+				where: ({ userId: uid, value }, { and, eq }) =>
+					and(eq(hexChallenges.value, value), eq(uid, userId)),
+				limit: 1
+			}
+		}
+	});
 };
 
 export const addGuess = async ({
@@ -59,18 +71,4 @@ export const addGuess = async ({
 		.returning();
 
 	return guessDoc;
-};
-
-export const getPlayerGuesses = async ({
-	userId,
-	challengeId
-}: {
-	userId: string;
-	challengeId: string;
-}) => {
-	const guesses = await db.query.guesses.findMany({
-		where: ({ userId: uid, challengeId: cid }, { eq }) => eq(uid, userId) && eq(cid, challengeId),
-		orderBy: ({ createdAt }, { desc }) => desc(createdAt)
-	});
-	return guesses;
 };

@@ -1,4 +1,4 @@
-import { addGuess, doesChallengeExist, getPlayerGuesses } from '$lib/helpers/challenges';
+import { addGuess, doesChallengeExist } from '$lib/helpers/challenges';
 import { getOrCreatePlayer } from '$lib/helpers/players';
 import { fail } from '@sveltejs/kit';
 import { string, length, regex, object, safeParse } from 'valibot';

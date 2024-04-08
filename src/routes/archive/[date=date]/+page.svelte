@@ -1,11 +1,11 @@
-<script>
+<script lang="ts">
 	import Hero from '$components/Hero.svelte';
 	import WhatTheHex from '$components/WhatTheHex.svelte';
 
 	export let data;
 </script>
 
-<Hero heading="What The Hex ?!" subheading="Instead of guessing words, try guessing hex colors !" />
+<Hero heading="{data.challenge?.createdAt} challenge" subheading="Can you solve it?" />
 
 {#if data.challenge}
 	<div class="wth-wrap">
