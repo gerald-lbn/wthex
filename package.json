@@ -38,6 +38,7 @@
   "dependencies": {
     "@formkit/auto-animate": "^0.8.1",
     "sass": "^1.74.1",
+    "svelte-sonner": "^0.3.21",
     "valibot": "^0.30.0"
   }
 }
