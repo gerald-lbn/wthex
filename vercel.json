@@ -1,0 +1,8 @@
+{
+	"cron": [
+		{
+			"path": "/api/cron/new-challenge",
+			"schedule": "1 0 * * *"
+		}
+	]
+}
