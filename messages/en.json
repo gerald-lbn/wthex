@@ -6,5 +6,7 @@
 	"hexInput": "Enter a hex color value (3 characters)",
 	"guesses": "Guesses",
 	"archives": "Archives",
-	"archivesDescription": "Find all the past challenges here. Each day, a new challenge will be posted."
+	"archivesDescription": "Find all the past challenges here. Each day, a new challenge will be posted.",
+	"canYouSolveIt": "Can you solve it?",
+	"challengeDate": "{date} challenge"
 }

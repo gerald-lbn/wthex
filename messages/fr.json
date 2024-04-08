@@ -6,5 +6,7 @@
 	"hexInput": "Entrez une valeur en hexadécimale (3 caractères)",
 	"guesses": "Suppositions",
 	"archives": "Archives",
-	"archivesDescription": "Retrouvez tous les défis passés ici. Chaque jour, un nouveau défi sera posté."
+	"archivesDescription": "Retrouvez tous les défis passés ici. Chaque jour, un nouveau défi sera posté.",
+	"canYouSolveIt": "Saurez-vous résoudre ce défi ?",
+	"challengeDate": "Défi du {date}"
 }
