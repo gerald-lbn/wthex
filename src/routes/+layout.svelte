@@ -1,6 +1,12 @@
 <script lang="ts">
+	import Navbar from '$components/Navbar.svelte';
+	import { Toaster } from 'svelte-sonner';
 	import '../styles/globals.scss';
 </script>
+
+<Navbar />
+
+<Toaster />
 
 <main class="container">
 	<slot />
