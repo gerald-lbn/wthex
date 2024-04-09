@@ -8,5 +8,9 @@
 	"archives": "Archives",
 	"archivesDescription": "Retrouvez tous les défis passés ici. Chaque jour, un nouveau défi sera posté.",
 	"canYouSolveIt": "Saurez-vous résoudre ce défi ?",
-	"challengeDate": "Défi du {date}"
+	"challengeDate": "Défi du {date}",
+	"unsolvedChallenge": "Défi non résolu",
+	"notLongEnoughGuess": "Le code doit comporter 6 caractères",
+	"invalidHex": "Le code doit être une couleur hexadécimale valide avec 6 digits",
+	"challengeNotFound": "Défi introuvable"
 }

@@ -1,4 +1,4 @@
-import { getArchivedChallenges } from '$lib/helpers/challenges.js';
+import { getArchivedChallenges } from '$lib/helpers/challenges';
 
 export const load = async ({ getClientAddress }) => {
 	const userIp = getClientAddress();

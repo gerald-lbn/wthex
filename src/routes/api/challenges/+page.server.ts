@@ -3,6 +3,8 @@ import { getOrCreatePlayer } from '$lib/helpers/players';
 import { fail } from '@sveltejs/kit';
 import { string, length, regex, object, safeParse } from 'valibot';
 
+import * as m from '$lib/paraglide/messages';
+
 export const actions = {
 	guess: async ({ getClientAddress, request }) => {
 		// Get form data
@@ -13,9 +15,9 @@ export const actions = {
 		// Validate form data
 		const schema = object({
 			guess: string([
-				length(6, 'Code must be 6 characters long'),
+				length(6, m.notLongEnoughGuess()),
 				// Hex color code regex (3 digits)
-				regex(/^[0-9a-fA-F]{6}$/, 'Code must be a valid hex color with 6 digits')
+				regex(/^[0-9a-fA-F]{6}$/, m.invalidHex())
 			]),
 			challenge: string()
 		});
@@ -39,7 +41,7 @@ export const actions = {
 		const challengeExists = await doesChallengeExist(safeForm.output.challenge);
 		if (!challengeExists)
 			return fail(404, {
-				message: 'Challenge not found'
+				message: m.challengeNotFound()
 			});
 
 		// Register the guess

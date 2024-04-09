@@ -8,5 +8,9 @@
 	"archives": "Archives",
 	"archivesDescription": "Find all the past challenges here. Each day, a new challenge will be posted.",
 	"canYouSolveIt": "Can you solve it?",
-	"challengeDate": "{date} challenge"
+	"challengeDate": "{date} challenge",
+	"unsolvedChallenge": "Unsolved Challenge",
+	"notLongEnoughGuess": "Code must be 6 characters long",
+	"invalidHex": "Code must be a valid hex color with 6 digits",
+	"challengeNotFound": "Challenge not found"
 }

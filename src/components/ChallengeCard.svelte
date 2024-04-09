@@ -1,5 +1,9 @@
 <script lang="ts">
 	import type { HexChallenge } from '$lib/db/types';
+	import { verbalDate } from '$lib/helpers/date';
+
+	import * as m from '$lib/paraglide/messages';
+	import { languageTag } from '$lib/paraglide/runtime';
 
 	interface Props {
 		challenge: HexChallenge;
@@ -16,10 +20,10 @@
 		{#if solved}
 			#{challenge.value}
 		{:else}
-			Unsolved Challenge
+			{m.unsolvedChallenge()}
 		{/if}
 	</p>
-	<p class="size-8 date">{new Date(challenge.createdAt).toDateString()}</p>
+	<p class="size-8 date">{verbalDate(challenge.createdAt, languageTag())}</p>
 </a>
 
 <style lang="scss">
