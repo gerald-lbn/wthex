@@ -36,6 +36,10 @@
 		margin-top: var(--space-2xl);
 		user-select: none;
 
+		@media (max-width: 640px) {
+			gap: var(--space-md);
+		}
+
 		& > div {
 			display: flex;
 			justify-content: center;

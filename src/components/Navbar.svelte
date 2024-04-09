@@ -21,6 +21,10 @@
 
 		padding: var(--space-4xl);
 
+		@media (max-width: 768px) {
+			padding: var(--space-4xl) var(--space-2xl);
+		}
+
 		& > nav {
 			display: flex;
 			align-items: end;

@@ -26,5 +26,10 @@
 	main {
 		margin-top: var(--space-6xl);
 		margin-bottom: var(--space-6xl);
+
+		@media (max-width: 768px) {
+			margin-top: var(--space-4xl);
+			margin-bottom: var(--space-4xl);
+		}
 	}
 </style>

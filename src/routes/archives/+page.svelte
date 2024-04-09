@@ -34,5 +34,13 @@
 		display: grid;
 		grid-template-columns: repeat(4, minmax(auto, 1fr));
 		gap: var(--space-xl);
+
+		@media (max-width: 768px) {
+			grid-template-columns: repeat(3, minmax(auto, 1fr));
+		}
+
+		@media (max-width: 640px) {
+			grid-template-columns: repeat(2, minmax(auto, 1fr));
+		}
 	}
 </style>

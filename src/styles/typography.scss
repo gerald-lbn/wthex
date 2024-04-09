@@ -1,39 +1,71 @@
 .size-1 {
 	font-size: 68px;
 	line-height: 1.125;
+
+	@media (max-width: 640px) {
+		font-size: 56px;
+	}
 }
 
 .size-2 {
 	font-size: 56px;
 	line-height: 1.125;
+
+	@media (max-width: 640px) {
+		font-size: 48px;
+	}
 }
 
 .size-3 {
 	font-size: 48px;
 	line-height: 1.125;
+
+	@media (max-width: 640px) {
+		font-size: 42px;
+	}
 }
 
 .size-4 {
 	font-size: 42px;
 	line-height: 1.125;
+
+	@media (max-width: 640px) {
+		font-size: 36px;
+	}
 }
 
 .size-5 {
 	font-size: 36px;
 	line-height: 1.125;
+
+	@media (max-width: 640px) {
+		font-size: 30px;
+	}
 }
 
 .size-6 {
 	font-size: 30px;
 	line-height: 1.125;
+
+	@media (max-width: 640px) {
+		font-size: 24px;
+	}
 }
 
 .size-7 {
 	font-size: 24px;
 	line-height: 1.125;
+
+	@media (max-width: 640px) {
+		font-size: 18px;
+	}
 }
 
 .size-8 {
 	font-size: 18px;
 	line-height: 1.125;
+
+	@media (max-width: 640px) {
+		font-size: 16px;
+	}
 }

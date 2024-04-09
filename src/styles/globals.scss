@@ -38,4 +38,9 @@ body {
 	max-width: 1024px;
 	margin: 0 auto;
 	padding: 0 var(--space-4xl);
+
+	// Phone
+	@media (max-width: 640px) {
+		padding: 0 var(--space-2xl);
+	}
 }
