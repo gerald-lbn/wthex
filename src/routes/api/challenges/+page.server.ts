@@ -13,9 +13,9 @@ export const actions = {
 		// Validate form data
 		const schema = object({
 			guess: string([
-				length(3, 'Code must be 3 characters long'),
+				length(6, 'Code must be 6 characters long'),
 				// Hex color code regex (3 digits)
-				regex(/^[0-9a-fA-F]{3}$/, 'Code must be a valid hex color with 3 digits')
+				regex(/^[0-9a-fA-F]{6}$/, 'Code must be a valid hex color with 6 digits')
 			]),
 			challenge: string()
 		});

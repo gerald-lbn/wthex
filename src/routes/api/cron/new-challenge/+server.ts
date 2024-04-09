@@ -6,7 +6,7 @@ export async function GET({ request }) {
 		return new Response('Unauthorized', { status: 401 });
 	}
 
-	const chall = await createChallenge(3, new Date());
+	const chall = await createChallenge(6, new Date());
 
 	return new Response(JSON.stringify(chall), {
 		status: 200

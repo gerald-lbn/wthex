@@ -22,7 +22,7 @@
 			if (guessed) currentGuess = challenge.value;
 			else currentGuess = guesses[0].value;
 		} else {
-			currentGuess = '000';
+			currentGuess = '000000';
 		}
 	});
 </script>
@@ -68,10 +68,10 @@
 			<Input
 				required
 				type="text"
-				placeholder="FFF"
+				placeholder="FFFFFF"
 				name="guess"
 				hint={m.hexInput()}
-				pattern="[a-fA-F0-9]&lcub;3&rcub;"
+				pattern="[a-fA-F0-9]&lcub;6&rcub;"
 			/>
 		</form>
 	{/if}

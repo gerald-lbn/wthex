@@ -3,7 +3,7 @@
 	"heroDescription": "Au lieu de deviner des mots, devine des couleurs en hexadécimale !",
 	"target": "Objectif",
 	"guess": "Supposition",
-	"hexInput": "Entrez une valeur en hexadécimale (3 caractères)",
+	"hexInput": "Entrez une valeur en hexadécimale (6 caractères)",
 	"guesses": "Suppositions",
 	"archives": "Archives",
 	"archivesDescription": "Retrouvez tous les défis passés ici. Chaque jour, un nouveau défi sera posté.",

@@ -31,7 +31,7 @@
 <style lang="scss">
 	.guess {
 		display: grid;
-		grid-template-columns: repeat(3, minmax(auto, 1fr));
+		grid-template-columns: repeat(6, minmax(auto, 1fr));
 		gap: var(--space-lg);
 		margin-top: var(--space-2xl);
 		user-select: none;
