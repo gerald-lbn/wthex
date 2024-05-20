@@ -1,17 +1,20 @@
 <script lang="ts">
+	import { browser } from '$app/environment';
 	import ChallengeCard from '$components/ChallengeCard.svelte';
 	import Hero from '$components/Hero.svelte';
+	import type { HexChallenge } from '$lib/db/types';
 	import { formatDateWithDash } from '$lib/helpers/date';
+	import { getItem } from '$lib/helpers/localStorage';
 
 	import * as m from '$lib/paraglide/messages';
 
 	export let data;
 
-	let solved = (challenge: (typeof data.challenges)[0]) => {
-		// Check if the challenge has any guesses
-		// i.e if the challenge has been solved
-		// We filtered guesses to only include correct guesses
-		return challenge.guesses.length > 0;
+	let solved = (challenge: HexChallenge) => {
+		if (browser) {
+			const guesses = getItem<string[]>(`guesses-${challenge.createdAt}`);
+			return guesses?.includes(challenge.value);
+		}
 	};
 </script>
 

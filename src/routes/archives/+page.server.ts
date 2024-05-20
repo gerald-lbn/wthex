@@ -1,11 +1,9 @@
 import { getArchivedChallenges } from '$lib/helpers/challenges';
 
-export const load = async ({ getClientAddress }) => {
-	const userIp = getClientAddress();
-	const challenges = await getArchivedChallenges(userIp);
+export const load = async () => {
+	const challenges = await getArchivedChallenges();
 
 	return {
-		userIp,
 		challenges
 	};
 };

@@ -1,26 +1,34 @@
 <script lang="ts">
-	import type { HexChallengeWithGuesses } from '$lib/db/types';
+	import type { HexChallenge } from '$lib/db/types';
 	import Guess from '$components/Guess.svelte';
 	import Input from '$components/Input.svelte';
 	import { enhance } from '$app/forms';
 	import autoAnimate from '@formkit/auto-animate';
-	// import { toast } from 'svelte-french-toast';
 
 	import * as m from '$lib/paraglide/messages';
+	import { getItem } from '$lib/helpers/localStorage';
 
 	interface Props {
-		challenge: HexChallengeWithGuesses;
+		challenge: HexChallenge;
 	}
 
 	const { challenge }: Props = $props();
-	let guesses = $state<typeof challenge.guesses>(challenge.guesses);
+
+	const localStorageGuessesKey = `guesses-${challenge.createdAt}`;
+	let guesses = $state<string[]>([]);
 	let currentGuess = $state<string>('');
 	let guessed = $derived(currentGuess.toUpperCase() === challenge.value.toUpperCase());
+
+	// Load guesses from local storage
+	$effect(() => {
+		const storedGuesses = getItem<string[]>(localStorageGuessesKey);
+		if (storedGuesses) guesses = storedGuesses;
+	});
 
 	$effect(() => {
 		if (guesses.length > 0) {
 			if (guessed) currentGuess = challenge.value;
-			else currentGuess = guesses[0].value;
+			else currentGuess = guesses[0];
 		} else {
 			currentGuess = '000000';
 		}
@@ -54,9 +62,11 @@
 					console.error(result.data);
 				} else if (result.type === 'success') {
 					const guess = result.data!.guess as typeof guesses[0];
+					currentGuess = guess;
 
+					// Save guess to local storage
 					guesses = [guess, ...guesses]
-					currentGuess = guess.value;
+					localStorage.setItem(localStorageGuessesKey, JSON.stringify(guesses));
 
 					// if (guessed) toast.success('You guessed it! 🎉');
 				}
@@ -64,7 +74,6 @@
 			};
 		}}
 		>
-			<Input required type="hidden" name="challenge" value={challenge.id} />
 			<Input
 				required
 				type="text"
@@ -81,7 +90,7 @@
 		<ul use:autoAnimate>
 			{#each guesses as guess}
 				<li>
-					<Guess target={challenge.value} guess={guess.value} />
+					<Guess target={challenge.value} {guess} />
 				</li>
 			{/each}
 		</ul>
