@@ -1,8 +1,6 @@
 import { getChallenge } from '$lib/helpers/challenges';
 
-export const load = async ({ getClientAddress }) => {
-	const userIp = getClientAddress();
-
-	const challenge = await getChallenge(new Date(), userIp);
+export const load = async () => {
+	const challenge = await getChallenge(new Date());
 	return { challenge };
 };
