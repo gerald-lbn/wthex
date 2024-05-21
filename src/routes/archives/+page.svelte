@@ -13,8 +13,9 @@
 	let solved = (challenge: HexChallenge) => {
 		if (browser) {
 			const guesses = getItem<string[]>(`guesses-${challenge.createdAt}`);
-			return guesses?.includes(challenge.value);
+			return guesses?.map((g) => g.toLocaleLowerCase()).includes(challenge.value.toLowerCase());
 		}
+		return false;
 	};
 </script>
 
