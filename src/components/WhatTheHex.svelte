@@ -7,6 +7,7 @@
 
 	import * as m from '$lib/paraglide/messages';
 	import { getItem } from '$lib/helpers/localStorage';
+	import { onMount } from 'svelte';
 
 	interface Props {
 		challenge: HexChallenge;
@@ -20,7 +21,7 @@
 	let guessed = $derived(currentGuess.toUpperCase() === challenge.value.toUpperCase());
 
 	// Load guesses from local storage
-	$effect(() => {
+	onMount(() => {
 		const storedGuesses = getItem<string[]>(localStorageGuessesKey);
 		if (storedGuesses) guesses = storedGuesses;
 	});
